@@ -5,7 +5,7 @@ const questions = [
     {
         type: 'input',
         name: 'insideText',
-        message: 'Please enter three characters for your logo.',
+        message: 'Please enter 1-3 characters for your logo.',
     },
     {
         type: 'input',
@@ -24,6 +24,7 @@ const questions = [
         message: 'What color will your shape be?',
     },
 ];
+
 
 
 function init(){
