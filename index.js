@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateSVG = require('./lib/generateSVG')
 
-const questions = [
+inquirer
+.prompt([
     {
         type: 'input',
         name: 'insideText',
@@ -23,14 +25,11 @@ const questions = [
         name: 'shapeColor',
         message: 'What color will your shape be?',
     },
-];
+]).then(data => {
+    fs.writeFile('./examples/sample-SVG-logo.svg', generateSVG(data), function (error) {
+        error ? console.log(error) : console.log('SVG logo was successfully created!')
+    })
+});
 
 
 
-function init(){
-     return inquirer.prompt(questions).then((data) => {
-        console.log(data)
-     })
-}
-
-init();
