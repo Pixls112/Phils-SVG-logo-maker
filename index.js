@@ -1,6 +1,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateSVG = require('./lib/generateSVG')
+const Circle = require('./lib/Circle')
+const Square = require('./lib/Square')
+const Triangle = require('./lib/Triangle')
+
+
+function generateSVG(data) {
+    if (data.shapeChoice === 'Circle') {
+       const shapeCircle = new Circle (data.shapeColor, data.insideText, data.textColor).render();
+       return shapeCircle
+    } else if (data.shapeChoice === 'Square') {
+        const shapeSquare = new Square (data.shapeColor, data.insideText, data.textColor).render();
+        return shapeSquare
+    } else if (data.shapeChoice === 'Triangle') {
+        const shapeTriangle = new Triangle (data.shapeColor, data.insideText, data.textColor).render();
+        return shapeTriangle
+    }
+}
 
 inquirer
 .prompt([
