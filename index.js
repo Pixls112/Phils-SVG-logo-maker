@@ -4,7 +4,7 @@ const Circle = require('./lib/Circle')
 const Square = require('./lib/Square')
 const Triangle = require('./lib/Triangle')
 
-
+//This function will render the shape based on the user's input.
 function generateSVG(data) {
     if (data.shapeChoice === 'Circle') {
        const shapeCircle = new Circle (data.shapeColor, data.insideText, data.textColor).render();
@@ -18,6 +18,7 @@ function generateSVG(data) {
     }
 }
 
+//This prompts the user with questions and uses the data to fill into the function, and will then generate the shape into the examples folder.
 inquirer
 .prompt([
     {
